@@ -1,0 +1,70 @@
+<html lang="en-US" ng-app="TIYAngularApp">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/coco-ng-controller.js"></script> <!--local AngularJS-->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/coco-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<!--<body style="background-color:Tan;">-->
+<body ng-controller="SampleController">
+
+{{! changing the mustache delimiter so it doesn't conflict with  }}
+{{! the default angularjs delimeters - https://mustache.github.io/mustache.5.html for more info  }}
+{{=<% %>=}}
+
+<h1 style="text-align:center;">Welcome to the Chocolate Factory ^.^
+    <br>of</h1><center><img style="align:center;" src="http://www.escapes.ca/blog/wp-content/uploads/2014/03/hershey-chocolate-world.jpg" width="500" height="380"></center>
+
+<br>
+<br>
+<div style="position: relative; float: left; width: 100%; padding: 20px;">
+    <table border="1" style="width:100%">
+        <tr>
+            <td><h2>Let us know how much chocolate you have in your factory</h2>
+
+                <h3><p>Number of BIG Bars(5 kilos each): <input type="text" ng-model="cocoInput.big"></span></h3></p>
+                <br2>
+                    <h3>Number of small Bars(1 kilos each):
+                        <input type="text" ng-model="cocoInput.small"></span></h3></p>
+                    <br>
+                    <h2>How much chocolate are you trying to make??
+                        <br>
+                        <h3>Kilos  of Chocolate: <input type="text" ng-model="cocoInput.goal"></span></h3></p>
+
+                        <center><input type="button" ng-click="chocolate()" value="~~Make Sweet Chocolate~~"/></center>
+
+                    </h2>
+                </br2>
+            </td>
+
+            <th><h2>Here is your Inventory:
+
+                <div ng-repeat="chocIndex in makeArray(cocoInput.big)">
+                    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+                </div>
+
+                <div ng-repeat="chocIndex in makeArray(cocoInput.small)">
+                    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+                </div>
+            </h2></th>
+
+        <tr>
+            <td>
+                <h2>Your Solution is: {{cocoSolution}} </h2>
+                <div ng-repeat="chocIndex in makeArray(cocoSolution.bigs)">
+                    <div class="choc-big-bar">{{chocIndex + 1}}</div>
+                </div>
+
+
+                <div ng-repeat="chocIndex in makeArray(cocoSolution.smalls)">
+                    <div class="choc-small-bar">{{chocIndex + 1}}</div>
+                </div>
+            </td>
+            <br>
+        </tr>
+    </table>
+</div>
+<center><h2><div id="footer">
+    Copyright © TiSHA-TechSquareLabs/ The Iron Yard
+</center></h2></div>
+</body>
+</html>
